@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/config";
 import App from "./App";
-import Main from "./pages/Main"; // Import your main page component
+import Main from "./pages/Main";
 
 const AppRoutes: React.FC = () => {
 	const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
@@ -15,9 +15,6 @@ const AppRoutes: React.FC = () => {
 		return () => unsubscribe();
 	}, []);
 
-	if (isAuthenticated === null) {
-		return <div>Loading...</div>; // Optional: Show a loading spinner
-	}
 
 	return (
 		<Router>
